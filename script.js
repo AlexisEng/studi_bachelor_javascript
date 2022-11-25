@@ -19,8 +19,7 @@ let utilisateur = new Utilisateur("Engelaere","Alexis",24,"Poid plume");
 let myScore = 0;
 let myAdversaireScore = 0;
 let tabChoice = ["Pierre","Feuille","Ciseaux"];
-
-// TODO -> opérateur sur les tableaux
+let num = [1,2,3];
 
 function calculeWinner(myChoice, advChoice) {
     if (myChoice === advChoice) {
@@ -58,11 +57,11 @@ function calculeWinner(myChoice, advChoice) {
     }
 }
 
-console.log(calculeWinner("Ciseaux","Pierre"));
-console.log(calculeWinner("Ciseaux","Pierre"));
-console.log(calculeWinner("Ciseaux","Pierre"));
-console.log(myScore);
-console.log(myAdversaireScore);
+// console.log(calculeWinner("Ciseaux","Pierre"));
+// console.log(calculeWinner("Ciseaux","Pierre"));
+// console.log(calculeWinner("Ciseaux","Pierre"));
+// console.log(myScore);
+// console.log(myAdversaireScore);
 
 function checkFinalWinner(myFunctionScore, myFunctionAdversaireScore) {
     if (myFunctionScore === 3) {
@@ -74,13 +73,31 @@ function checkFinalWinner(myFunctionScore, myFunctionAdversaireScore) {
     }
 }
 
-console.log(checkFinalWinner(myScore, myAdversaireScore));
 
-
-
-
-let pierre = document.getElementById('pierre');
-console.log(pierre);
-pierre.onclick = function () {
-    let randNumber = Math.floor(Math.random()*tabChoice.length); 
+let pierreButton = document.getElementById('pierre');
+pierreButton.onclick = function () {
+    const advChoice = generateAdversaireChoice(tabChoice);
+    console.log(advChoice);
+    const resultManche = calculeWinner("Pierre", advChoice);
+    console.log("myScore " + myScore);
+    console.log("myAdversaireScore " + myAdversaireScore);
+    const resultJeu = checkFinalWinner(myScore, myAdversaireScore);
+    console.log(resultJeu);
 } 
+
+let feuilleButton = document.getElementById('feuille');
+feuilleButton.onclick = function () {
+    const advChoice = generateAdversaireChoice(tabChoice);
+    const resultManche = calculeWinner("Feuille", advChoice);
+    console.log("myScore " + myScore);
+    console.log("myAdversaireScore " + myAdversaireScore);
+    const resultJeu = checkFinalWinner(myScore, myAdversaireScore);
+    console.log(resultJeu);
+}
+
+
+function generateAdversaireChoice(myFunctionTabChoice) {
+    let randNumber = Math.floor(Math.random()*myFunctionTabChoice.length);
+    let advChoice = myFunctionTabChoice[randNumber];
+    return advChoice;
+}
