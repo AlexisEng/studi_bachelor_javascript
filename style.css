@@ -1,0 +1,14 @@
+h1 {
+    display: flex;
+    justify-content: center;
+}
+#divPrincipale {
+    display: flex;
+    justify-content: space-around;
+}
+
+#tabResult {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
