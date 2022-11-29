@@ -17,38 +17,47 @@
 
     <div id="divPrincipale">
         <div>
-            <p>Mon nom</p>
-            <p>Mon prenom</p>
-            <p>Mon âge</p>
-            <p>Ma catégorie</p>
+            <p id="myName">Mon nom</p>
+            <p id="myFirstName">Mon prenom</p>
+            <p id="myAge">Mon âge</p>
+            <p id="myCategory">Ma catégorie</p>
             <button id="pierre">Pierre</button>
             <button id="feuille">Feuille</button>
             <button id="ciseaux">Ciseaux</button>
             <div>
-                <p>Mon choix définitif : </p>
+                Mon choix définitif :
+                <p id="definitifChoice"></p>
             </div>
+
         </div>
 
         <div>
-            <p>Son nom</p>
-            <p>Son prenom</p>
-            <p>Son âge</p>
-            <p>Sa catégorie</p>
+            <p id="herName">Son nom</p>
+            <p id="herFirstName">Son prenom</p>
+            <p id="herAge">Son âge</p>
+            <p id="herCategory">Sa catégorie</p>
             <button disabled>Pierre</button>
             <button disabled>Feuille</button>
             <button disabled>Ciseaux</button>
             <div>
-                <p>Son choix définitif : </p>
+                Son choix définitif :
+                <p id="definitifChoiceAdversaire"></p>
             </div>
         </div>
     </div>
 
-    <div id="tabResult">
-        Tableau des résultats : 
-        <p>Mon score : </p>
-        <p>Adversaire score : </p>
+    <div id="resultatManche">
+       Résultat de la manche 
     </div>
 
+    <div id="tabResult">
+        Tableau des résultats : 
+        <p id="myScore">Mon score : 0 </p>
+        <p id="myAdversaireScore">Adversaire score : 0</p>
+    </div>
+
+
+    <button id="tryAgain">Recommencez le jeu !</button>
     <script src="script.js"></script>
 
 </body>
