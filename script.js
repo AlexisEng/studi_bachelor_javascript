@@ -10,11 +10,50 @@ class Utilisateur {
         this.age = age;
         this.categorie = categorie;
     }
+
+    saluer() {
+        alert("Bonjour, je me présente : " + this.prenom + " !");
+    }
 }
 
-let adversaire = new Utilisateur("Dupont","Gerard",29,"Poid Lourd");
 
+let adversaire = new Utilisateur("Dupont","Gerard",29,"Poid Lourd");
 let utilisateur = new Utilisateur("Engelaere","Alexis",24,"Poid plume");
+
+/*Partie bonus sur l'extension, l'héritage, la surchage, etc...*/
+/*
+class Master extends Utilisateur {
+    #privateField;
+    constructor(
+        nom,
+        prenom,
+        age,
+        categorie
+    ){
+        super(nom, prenom, age, categorie);
+        this.#privateField = "Master";
+    }
+
+    saluer() {
+        alert("Bonjour, je suis le master : " + this.prenom + " !");
+    }
+}
+
+
+let master1 = new Master("Doe","John",55,"Poid plume");
+master1.saluer();
+let adversaire = new Utilisateur("Dupont","Gerard",29,"Poid Lourd");
+adversaire.saluer();
+let adversaireSolo = {
+    nom: "Dupont",
+    prenom: "Jean",
+    age: 23,
+    categorie: "Poid lourd" 
+};
+
+//Ne fonctionnera pas, puisque adversaireSolo n'est pas une instance de la class Utilisateur
+adversaireSolo.saluer();
+*/
 
 let myScore = 0;
 let myAdversaireScore = 0;
@@ -132,3 +171,26 @@ window.onload = function() {
 document.getElementById("tryAgain").onclick = function() {
     window.location.reload();
 }
+
+
+/*Bonus : Découverte des promesses*/
+function divide(numerator,denominator) {
+    return new Promise((resolve,reject) =>  {
+        if (denominator === 0) {
+            reject("Division par 0 impossible");
+            return;
+        }
+        resolve(numerator/denominator);
+    });
+};
+
+divide(10,0)
+    .then(result => console.log(result))
+    .catch(error => console.log(error))
+    .finally(console.log('Vous avez essayé une division'));
+
+
+/*let promise = new Promise((resolve, reject) => {
+    resolve(fetch('https://jsonplaceholder.typicode.com/todos/10'));
+    reject(new Error("An error occured !"));
+});*/
